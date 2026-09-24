@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>45 Hard — You're invited</title>
+<meta property="og:title" content="You're invited to 45 Hard" />
+<meta property="og:description" content="Get the app and add your friend." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://hasplabs.github.io/fortyfivehard/icon.png" />
+<style>
+  :root {
+    --bg: #0B0F14; --surface: #121A24; --outline: #263341;
+    --text: #E9EEF3; --body: #C6D0DA; --muted: #93A3B3; --accent: #4CC9DE;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--body);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 22px 80px; }
+  header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+  .mark { width: 34px; height: 34px; border-radius: 9px; border: 2px solid var(--accent); color: var(--accent); flex: none; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; letter-spacing: -.02em; }
+  h1 { color: var(--text); font-size: 22px; margin: 0; letter-spacing: .2px; }
+  h2 { color: var(--text); font-size: 20px; margin: 40px 0 10px; }
+  a { color: var(--accent); }
+  p { margin: 10px 0; }
+  .card { background: var(--surface); border: 1px solid var(--outline); border-radius: 14px; padding: 18px 20px; margin: 14px 0; }
+  .btn { display: inline-block; background: var(--accent); color: var(--bg); font-weight: 600; text-decoration: none; border-radius: 10px; padding: 12px 18px; margin: 14px 0 6px; }
+  .small { color: var(--muted); font-size: 14px; }
+  .state[hidden] { display: none !important; }
+  footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--outline); padding-top: 18px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="mark" aria-hidden="true">45</div>
+      <h1>45 Hard</h1>
+    </header>
+
+    <section>
+      <h2 id="heading">You're invited to 45 Hard</h2>
+      <p>45 Hard is a 45-day habit challenge. Pick your goals, log every one of them every day, and keep the streak.</p>
+      <p><a class="btn" href="https://apps.apple.com/app/id6811716562">Get 45 Hard on the App Store</a></p>
+      <p class="small" id="add" hidden>Already have the app? <a id="add-link" href="#"></a></p>
+      <p class="small">Need help? Email <a href="mailto:contact@hasplabs.com">contact@hasplabs.com</a>.</p>
+    </section>
+
+    <footer>
+      <p><a href="index.html">← Back to 45 Hard support</a></p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      // The invite link is invite.html?h=<handle>. The handle is used only when it matches the
+      // rule claim_handle enforces, and it is written only through textContent and the link's
+      // href property, so nothing from the address reaches the markup. A missing h reads as ''
+      // rather than null: the regex would coerce null to the string "null" and accept it.
+      var h = new URLSearchParams(location.search).get('h') || '';
+      if (!/^[a-z0-9_]{3,20}$/.test(h)) return;
+      document.getElementById('heading').textContent = '@' + h + ' invited you to 45 Hard';
+      var addLink = document.getElementById('add-link');
+      addLink.textContent = 'Add @' + h;
+      addLink.href = 'fortyfivehard://friends/add?handle=' + h;
+      document.getElementById('add').hidden = false;
+    })();
+  </script>
+</body>
+</html>
