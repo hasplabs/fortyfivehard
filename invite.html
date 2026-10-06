@@ -55,16 +55,20 @@
   </div>
   <script>
     (function () {
-      // The invite link is invite.html?h=<handle>. The handle is used only when it matches the
-      // rule claim_handle enforces, and it is written only through textContent and the link's
-      // href property, so nothing from the address reaches the markup. A missing h reads as ''
-      // rather than null: the regex would coerce null to the string "null" and accept it.
+      // The invite link is invite.html?h=<handle>, and from 1.6.0 on also carries d, the UTC day
+      // the link was made. The handle is used only when it matches the rule claim_handle
+      // enforces, and it is written only through textContent and the link's href property, so
+      // nothing from the address reaches the markup. A missing h reads as '' rather than null:
+      // the regex would coerce null to the string "null" and accept it. The day is handed to the
+      // app only when it has the YYYY-MM-DD form; anything else is dropped, so a damaged day
+      // makes the link act as one with no day. The page never shows the day.
       var h = new URLSearchParams(location.search).get('h') || '';
+      var d = new URLSearchParams(location.search).get('d') || '';
       if (!/^[a-z0-9_]{3,20}$/.test(h)) return;
       document.getElementById('heading').textContent = '@' + h + ' invited you to 45 Hard';
       var addLink = document.getElementById('add-link');
       addLink.textContent = 'Add @' + h;
-      addLink.href = 'fortyfivehard://friends/add?handle=' + h;
+      addLink.href = 'fortyfivehard://friends/add?handle=' + h + (/^\d{4}-\d{2}-\d{2}$/.test(d) ? '&date=' + d : '');
       document.getElementById('add').hidden = false;
     })();
   </script>
