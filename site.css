@@ -27,6 +27,7 @@
   --accent: #2f855a;
   --accent-tint: #e6f4ef;
   --on-accent: #ffffff;
+  --link: #276749;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,6 +42,7 @@
     --accent: #5fbf85;
     --accent-tint: #163524;
     --on-accent: #06281a;
+    --link: #5fbf85;
   }
 }
 
@@ -68,7 +70,7 @@ body {
   .wrap { padding-left: 24px; padding-right: 24px; }
 }
 
-a { color: var(--accent); text-underline-offset: 2px; }
+a { color: var(--link); text-underline-offset: 2px; }
 
 header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
 
@@ -136,7 +138,6 @@ strong { color: var(--text); }
 
 .small { color: var(--muted); font-size: 14px; }
 
-.state[hidden] { display: none !important; }
 
 footer {
   margin-top: 56px;
