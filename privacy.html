@@ -24,16 +24,16 @@
     <h2>What we collect</h2>
     <ul>
       <li><strong>Your account:</strong> you sign in with Apple or with an email address and password. We store the sign-in identity (your email address, or the private relay address Apple gives us if you hide yours) and, for a password account, a hashed password. We never see the password itself. A password account gets an email to confirm its address, and a code by email when you reset the password.</li>
-      <li><strong>Your profile:</strong> a display name and a handle you choose, a profile photo if you add one, your time zone (from your phone, used to decide what "today" means for you), and your preferences: reminder time, water units (first set from your phone's region), water increments, and notification choices.</li>
+      <li><strong>Your profile:</strong> a display name and a handle you choose, a profile photo if you add one, your time zone (from your phone, used to decide what "today" means for you), and your preferences: reminder time, water units (first set from your phone's region), water increments, and notification choices. If you add a phone number to your profile, we store only a scrambled version of it (a one-way hash), never the number.</li>
       <li><strong>Your challenges and logs:</strong> the challenges you create or join, their goals, and each day's entries: whether a goal was done, an amount where a goal has one (water, workout minutes, reading minutes, steps), and the result of each day. For a custom goal, its name and target.</li>
       <li><strong>Progress photos:</strong> if a challenge includes a progress photo goal, the photo you take each day is uploaded to private storage under your account. Photos are JPEG files of at most 5 MB, one per day.</li>
       <li><strong>Steps from Apple Health:</strong> if a challenge includes a steps goal and you allow it, the app reads your daily step count from Apple Health and stores that day's total against the goal. The app only ever reads step count; it never writes to Health and reads nothing else from it. You can revoke access at any time in the Health app under Sharing.</li>
       <li><strong>Friends and sharing:</strong> friend requests and friendships, the challenges you share with friends, cheers you send and receive, your sharing settings, the people you block, and the reports you send.</li>
-      <li><strong>Notifications:</strong> if you allow them, the push token your phone gives us, so we can send friend requests, acceptances, invites, cheers and day results. Turn categories off in Settings inside the app, or turn notifications off for 45 Hard in iOS Settings.</li>
+      <li><strong>Notifications:</strong> if you allow them, the push token your phone gives us, so we can send friend requests, acceptances, invites, cheers and day results, and changes to the challenges you are in (someone joining from your link, a goal change, a new owner, or your removal). Turn categories off in Settings inside the app, or turn notifications off for 45 Hard in iOS Settings.</li>
       <li><strong>Feature requests:</strong> the text you write, with your handle and display name at the time.</li>
       <li><strong>Error reports:</strong> if part of the app fails, it sends us the name of that part, an error code and the app's build number. The report holds nothing that identifies you, and we delete it after 30 days. Like every request the app makes, our hosting provider's logs note it with your account for one day.</li>
     </ul>
-    <p>We do not collect your location or your contacts; if you allow notifications, the push token your phone gives us is stored on your account until you sign out or delete your account. A phone signed out while offline removes its token the next time 45 Hard opens online there.</p>
+    <p>We do not collect your location. The app reads your contacts only when you ask it to find friends, and stores nothing from them (see Finding friends from your contacts); if you allow notifications, the push token your phone gives us is stored on your account until you sign out or delete your account. A phone signed out while offline removes its token the next time 45 Hard opens online there.</p>
 
     <h2>Who can see what</h2>
     <p>Five settings on the Sharing screen decide what other people see of you. Challenges, Calendar, Today's goals and History each take Nobody, Friends or Everyone and default to Friends; Progress photos takes Off or Friends and defaults to Off. Public profile is off by default; while it is off, a setting of Everyone behaves like Friends, and people who are not your friends can find your handle and name but nothing else.</p>
@@ -41,6 +41,21 @@
     <p>A progress photo can be seen by you, and by a friend only when Progress photos is on, only if that friend can also see your Today's goals, and only for the current day. Friends receive a link that expires after five minutes; your own links last an hour. A photo is never public.</p>
     <p>A profile photo, if you add one, is shown to your friends and to anyone in a challenge with you, never to someone either of you has blocked, and to nobody else. The sharing settings do not govern it: a person who has only found your handle sees your initials.</p>
     <p>Blocking someone is immediate and works both ways: you disappear from each other's lists and searches, requests and cheers between you are refused, and notifications between you stop. The person you block is not told. A challenge you are both already in keeps both of you on its board.</p>
+
+    <h2>Challenge links</h2>
+    <p>The owner of a challenge can share a link to join it. The link carries a random code tied to that one challenge and nothing else. Anyone who has the link can join while the challenge has not started and through its first day; the owner can turn the link off at any time, and a new link has a new code. Joining from a link puts you on that challenge's board, where every participant sees you as on any shared challenge, and makes you and the owner friends. The owner is told you joined.</p>
+
+    <h2>Finding friends from your contacts</h2>
+    <p>If you tap Find friends from your contacts and allow access, the app reads the email addresses and phone numbers in your contacts on your phone, turns each into a scrambled value (a one-way hash), and sends only those values to our server. Names, and the addresses and numbers themselves, never leave your phone. The server compares the values with the same scrambled value of each account's own email address and, where one has been added, phone number, answers with the matching accounts, and stores nothing it was sent. The scrambling keeps your contacts off our server; it does not hide you from someone who already has your email address or number, which is what the feature is for. Checks are limited to 10 an hour per account. To stop people finding you this way, turn off Let contacts find me under Profile, Sharing.</p>
+
+    <h2>Your phone number</h2>
+    <p>Adding a phone number is optional, and it is not verified. We store only its scrambled value, so that friends who have your number can find you; we cannot read the number back. You can remove it from your profile at any time, which deletes the stored value.</p>
+
+    <h2>The live board</h2>
+    <p>While a challenge's screen is open, the app keeps a connection to our server so the standings and feed update within seconds. The messages on that connection say only which challenge changed and what kind of change it was; the app then reads the change under the same rules as any other read. The connection closes when you leave the screen or put the app in the background, and the messages are deleted after three days.</p>
+
+    <h2>Instagram Stories</h2>
+    <p>If you tap Instagram beside Share on your completion card, the app hands the card image and its two background colours to Instagram through the phone's pasteboard, for at most five minutes, and opens Instagram. Nothing else is shared with Meta, and nothing is shared unless you tap.</p>
 
     <h2>Reports</h2>
     <p>If someone reports a profile or a photo, we receive who reported whom, the kind of report, the reason, any note they wrote, and for a photo report the location of the photo. We read reports to act on them, which may include looking at the reported content, removing a photo, or closing an account. Reports are not visible to anyone in the app. A report may be kept after either account is deleted: what is left carries the handles as they were at the time, not your name, and no longer points at anyone's account.</p>
@@ -50,9 +65,10 @@
 
     <h2>Services that handle your data</h2>
     <ul>
-      <li><strong>Supabase</strong> hosts the database, sign-in, file storage and server functions, in the United States (AWS, Oregon).</li>
+      <li><strong>Supabase</strong> hosts the database, sign-in, file storage and server functions, and the live board connection, in the United States (AWS, Oregon).</li>
       <li><strong>Apple</strong> provides Sign in with Apple, delivers push notifications to your phone, and distributes the app through TestFlight and the App Store.</li>
       <li><strong>Expo</strong> builds the app and relays push notifications to Apple's notification service; a push token and the text of each notification pass through Expo's push service.</li>
+      <li><strong>Meta</strong> receives your completion card image through Instagram, only when you tap Instagram on the card.</li>
       <li><strong>Discord</strong> receives a copy of each feature request you send, with your handle and display name, in a private channel only the developer reads.</li>
       <li><strong>Resend</strong> sends the emails that confirm a password account's address and carry its password reset code. Your email address and the message pass through Resend, which keeps a log of each message for 30 days.</li>
       <li><strong>GitHub</strong> runs our nightly database backup and stores the backup copies, encrypted with a key only we hold, for up to 14 days. Progress photos and profile photos are not copied into them.</li>
