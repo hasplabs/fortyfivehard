@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<meta name="apple-itunes-app" content="app-id=6811716562">
+<title>45 Hard — You're invited</title>
+<meta property="og:title" content="You're invited to a 45 Hard challenge" />
+<meta property="og:description" content="Get the app and join your friend's challenge." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="https://hasplabs.github.io/fortyfivehard/icon.png" />
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="mark" aria-hidden="true">45</div>
+      <h1>45 Hard</h1>
+    </header>
+
+    <section>
+      <h2 id="heading">You're invited to a 45 Hard challenge</h2>
+      <p>45 Hard is a 45-day habit challenge. Pick your goals, log every one of them every day, and keep the streak. Your friend set one up and wants you on the board.</p>
+      <p><a class="btn" href="https://apps.apple.com/app/id6811716562">Get 45 Hard on the App Store</a></p>
+      <p class="small" id="open" hidden>Already have the app? <a id="open-link" href="#">Open it</a></p>
+      <p class="small">Installing now? Open 45 Hard, sign in, then come back and tap this link again.</p>
+    </section>
+
+    <footer>
+      <p>HASP LABS LLC · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      // The challenge link is join.html?c=<code>. The code is used only when it has the link
+      // code's shape (twelve characters from a-z and 2-7), and it reaches the page only through
+      // the Open link's href property. A missing c reads as '' rather than null: the regex
+      // would coerce null to the string "null". Anything else keeps the Open link hidden and
+      // shows the general heading.
+      var c = new URLSearchParams(location.search).get('c') || '';
+      if (/^[a-z2-7]{12}$/.test(c)) {
+        document.getElementById('open-link').href = 'fortyfivehard://challenges/join?c=' + c;
+        document.getElementById('open').hidden = false;
+      } else {
+        document.getElementById('heading').textContent = "You're invited to 45 Hard";
+      }
+    })();
+  </script>
+</body>
+</html>
