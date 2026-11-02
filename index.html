@@ -3,84 +3,75 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>45 Hard — Support</title>
-<style>
-  :root {
-    --bg: #0B0F14; --surface: #121A24; --outline: #263341;
-    --text: #E9EEF3; --body: #C6D0DA; --muted: #93A3B3; --accent: #4CC9DE;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; background: var(--bg); color: var(--body);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 22px 80px; }
-  header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-  .mark { width: 34px; height: 34px; border-radius: 9px; border: 2px solid var(--accent); color: var(--accent); flex: none; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; letter-spacing: -.02em; }
-  h1 { color: var(--text); font-size: 22px; margin: 0; letter-spacing: .2px; }
-  .lede { color: var(--muted); font-size: 15px; margin: 4px 0 40px; }
-  h2 { color: var(--text); font-size: 17px; margin: 36px 0 10px; }
-  a { color: var(--accent); }
-  .card { background: var(--surface); border: 1px solid var(--outline); border-radius: 14px; padding: 18px 20px; margin: 14px 0; }
-  .q { color: var(--text); font-weight: 600; margin: 0 0 4px; }
-  .a { color: var(--body); margin: 0; }
-  .contact { font-size: 17px; }
-  footer { margin-top: 56px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--outline); padding-top: 18px; }
-  footer a { color: var(--muted); }
-</style>
+<title>45 Hard</title>
+<meta name="description" content="Pick the goals you keep putting off, do every one every day for 45 days, and finish with proof you can keep a promise to yourself." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="45 Hard" />
+<meta property="og:description" content="Pick the goals you keep putting off, do every one every day for 45 days, and finish with proof you can keep a promise to yourself." />
+<meta property="og:url" content="https://hasplabs.github.io/fortyfivehard/" />
+<meta property="og:image" content="https://hasplabs.github.io/fortyfivehard/media/hero-16x9.jpg" />
+<meta property="og:image:width" content="1920" />
+<meta property="og:image:height" content="1080" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="site.css">
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="mark" aria-hidden="true">45</div>
-      <h1>45 Hard</h1>
+  <div class="wrap landing">
+    <header class="site-head">
+      <a class="mark" href="index.html" aria-label="45 Hard home">45</a>
+      <a class="head-link" href="support.html">Support</a>
     </header>
-    <p class="lede">A 45-day all-or-nothing habit challenge, alone or with friends.</p>
 
-    <p>Pick your goals, log every one of them every day, and keep the streak. Miss a goal on any day and the attempt ends; a new one starts the next day. Friends can follow your progress, share a challenge with you, and cheer you on.</p>
+    <video class="hero" autoplay muted loop playsinline preload="metadata" poster="media/hero-16x9.jpg" aria-hidden="true">
+      <source src="media/hero-9x16.webm" type="video/webm" media="(max-width: 700px)">
+      <source src="media/hero-9x16.mp4" type="video/mp4" media="(max-width: 700px)">
+      <source src="media/hero-16x9.webm" type="video/webm">
+      <source src="media/hero-16x9.mp4" type="video/mp4">
+    </video>
+    <script>
+      (function () {
+        var v = document.querySelector('video.hero');
+        var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!v || !still) return;
+        v.pause();
+        v.addEventListener('play', function () { v.pause(); });
+      })();
+    </script>
 
-    <h2>Support</h2>
-    <div class="card">
-      <p class="contact">Need help or have a question? Email us at<br />
-      <a href="mailto:contact@hasplabs.com">contact@hasplabs.com</a></p>
+    <div class="intro">
+      <h1 class="headline">Keep every goal for 45 days</h1>
+      <p class="subline">Pick the goals you keep putting off, do every one every day for 45 days, and finish with proof you can keep a promise to yourself.</p>
+      <a class="badge" href="https://apps.apple.com/app/id6811716562">
+        <img src="img/app-store-badge.svg" alt="Download on the App Store" width="162" height="54">
+      </a>
     </div>
 
-    <h2>Common questions</h2>
-    <div class="card">
-      <p class="q">When does a day end?</p>
-      <p class="a">A day is your local date, from your phone's time zone. You can still log yesterday until 3:00 in the morning. The server decides whether a day passed, once an hour, so a result can show a little after the day ends.</p>
-    </div>
-    <div class="card">
-      <p class="q">Steps aren't counting.</p>
-      <p class="a">The steps goal reads your daily step count from Apple Health and never writes to it. Open the Health app, go to Sharing, then Apps, then 45 Hard, and turn Steps on. If Health has no steps for the day yet, the goal stays unmet until it does.</p>
-    </div>
-    <div class="card">
-      <p class="q">Who can see my progress?</p>
-      <p class="a">Under Profile, then Sharing, five settings decide what people see of you: Challenges, Calendar, Today's goals and History (each Nobody, Friends or Everyone) and Progress photos (Off or Friends). Everything starts at Friends with photos off. Public profile is off by default; while it is off, Everyone behaves like Friends and strangers can find only your handle and name. A challenge you share with friends is a board everyone in it can see, whatever these settings say.</p>
-    </div>
-    <div class="card">
-      <p class="q">Who can see my progress photos?</p>
-      <p class="a">Only you, unless you turn Progress photos on. Then a friend who can also see your Today's goals can see today's photo through a link that expires after five minutes. Past days are never shown to anyone but you.</p>
-    </div>
-    <div class="card">
-      <p class="q">How do I block or report someone?</p>
-      <p class="a">Open their screen and tap the three-dot button. Block removes the friendship, hides you from each other, refuses requests and cheers both ways, and stops notifications between you; they are not told. Report sends us the profile, or a photo from its viewer, with a reason and an optional note. We read every report.</p>
-    </div>
-    <div class="card">
-      <p class="q">How do I turn notifications off?</p>
-      <p class="a">Turn categories off under Profile, then Settings, or turn notifications off for 45 Hard in iOS Settings.</p>
-    </div>
-    <div class="card">
-      <p class="q">How do I delete my account?</p>
-      <p class="a">Open Profile, then Settings, then Account, then Delete account. It confirms once and then deletes the account and everything in it straight away — your challenges, logs, photos, friends and notification settings — with no undo. If you cannot sign in, email <a href="mailto:contact@hasplabs.com">contact@hasplabs.com</a> from the address on your account and we will do it for you. Signing out does not delete anything.</p>
-    </div>
-    <div class="card">
-      <p class="q">Where is my completion card?</p>
-      <p class="a">Finish all 45 days, then open that challenge from the Challenges tab. The "You" tab reads "Completed all 45 days" and offers "Your 45 Hard card": your totals for every goal over the run, your Day 1 and Day 45 progress photos when the challenge had the photo goal and both are still stored, and a Share button that opens the usual iOS share sheet. A run that ended early does not get a card.</p>
-    </div>
+    <section class="feature">
+      <div class="feature-text">
+        <h2>Goals you choose</h2>
+        <p>Water, a workout, reading, or anything you name. You set the targets, so each day asks for exactly what you decided mattered.</p>
+      </div>
+      <img class="shot" src="img/goals.png" alt="" loading="lazy" width="720" height="1561">
+    </section>
+
+    <section class="feature">
+      <div class="feature-text">
+        <h2>Miss one, start over</h2>
+        <p>A missed goal sends you back to day 1. That is what makes a long run hard to give up, and day 45 worth having.</p>
+      </div>
+      <img class="shot" src="img/calendar.png" alt="" loading="lazy" width="720" height="1561">
+    </section>
+
+    <section class="feature">
+      <div class="feature-text">
+        <h2>Company when you want it</h2>
+        <p>Run it alone, or send one link and friends join the same challenge. Seeing who's still in makes it harder to be the one who drops out.</p>
+      </div>
+      <img class="shot" src="img/standings.png" alt="" loading="lazy" width="720" height="1561">
+    </section>
 
     <footer>
-      <p>45 Hard is developed by HASP LABS LLC. &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a></p>
+      <p>HASP LABS LLC · <a href="privacy.html">Privacy</a> · <a href="support.html">Support</a></p>
     </footer>
   </div>
 </body>
