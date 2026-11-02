@@ -166,6 +166,23 @@ footer a { color: var(--muted); }
 @media (max-width: 700px) {
   .hero { aspect-ratio: 9 / 16; max-height: 78vh; }
 }
+.hero-box { position: relative; }
+.hero-toggle {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  min-height: 32px;
+  padding: 6px 14px;
+  border: 1px solid var(--outline);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.hero-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
 
 .intro { max-width: 640px; margin: 36px auto 8px; text-align: center; }
 .headline { font-size: 34px; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; }
